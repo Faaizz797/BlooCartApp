@@ -12,7 +12,7 @@ class Body extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: SizeConfig.screenHeight * 0.04),
-          Image.asset("assets/images/success.png"),
+          Image.asset("assets/images/login_success.png"),
           SizedBox(height: SizeConfig.screenHeight * 0.04),
           Text(
             "Login Success!",
