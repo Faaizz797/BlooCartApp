@@ -14,23 +14,28 @@ class SplashContent extends StatelessWidget {
     return Column(
       children: [
         const Spacer(),
-         Text('My Store',
-            style: TextStyle(
-              fontSize: getPropScreenWidth(36),
-              color: kPrimaryColor,
-              fontWeight: FontWeight.bold
-            ), ),
-           Text(text,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: getPropScreenWidth(14),
-              color: kSecondaryColor
-            ), 
-            ),
-            const Spacer(flex: 2,),
-            Image.asset(image, 
-            height: getPropScreenHeight(265), 
-            width: getPropScreenWidth(235),),
+        Text(
+          'BluMarket',
+          style: TextStyle(
+            fontSize: getPropScreenWidth(36),
+            color: kPrimaryColor,
+            fontFamily: 'Sirukota', 
+          ),
+        ),
+        Text(
+          text,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              fontSize: getPropScreenWidth(14), color: kSecondaryColor),
+        ),
+        const Spacer(
+          flex: 2,
+        ),
+        Image.asset(
+          image,
+          height: getPropScreenHeight(265),
+          width: getPropScreenWidth(235),
+        ),
       ],
     );
   }
