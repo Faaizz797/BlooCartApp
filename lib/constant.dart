@@ -16,6 +16,8 @@ const kPrimaryGradientColor = LinearGradient(
 
 const kSecondaryColor = Color(0xff979797);
 const kTextColor = Color(0xff757575);
+const kInActiveIconColor = Color(0xFFB6B6B6);
+
 
 const kAnimationDuration = Duration(milliseconds: 200);
 
@@ -40,4 +42,28 @@ const String kNameNullError = "Please Enter your name";
 const String kPhoneNumberNullError = "Please enter your phone number";
 const String kAddressNullError = "Please enter address";
 
+// OTP style
 
+final otpDecoration = InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: getPropScreenHeight(15),
+                    ),
+                    enabledBorder: otpOutlineInputBorder(),
+                    focusedBorder: otpOutlineInputBorder(),
+                    border: otpOutlineInputBorder(),
+                  );
+
+OutlineInputBorder otpOutlineInputBorder() {
+  return OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: const BorderSide(color: kTextColor),
+                  );
+}
+
+const defaultDuration = Duration(milliseconds: 250);
+
+// const for see more
+TextStyle seeMoreStyle = TextStyle(
+    fontSize: getPropScreenWidth(16),
+    fontWeight: FontWeight.bold,
+    color: kPrimaryColor);

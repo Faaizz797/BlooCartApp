@@ -18,4 +18,4 @@ Because shopping should be simple, enjoyable, and tailored to your needs! Whethe
 
 Here’s a sneak peek at what you can expect:
 
-![Home Screen](assets/images/mockup_new.png)
+![Home Screen](assets/images/mockup_latest.png)

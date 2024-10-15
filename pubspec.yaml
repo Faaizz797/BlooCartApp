@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.10+1
+  readmore: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -26,8 +27,8 @@ flutter:
 fonts:
   - family: Muli
     fonts:
-      - asset: assets/fonts/muli/Muli.ttf 
+      - asset: assets/fonts/muli/Muli.ttf
       - asset: assets/fonts/muli/Muli-Bold.ttf
         weight: 700
-      - asset: assets/fonts/muli/Muli-Light.ttf   
+      - asset: assets/fonts/muli/Muli-Light.ttf
         weight: 300
