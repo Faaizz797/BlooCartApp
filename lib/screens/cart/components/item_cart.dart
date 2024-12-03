@@ -36,7 +36,6 @@ class ItemCart extends StatelessWidget {
           children: [
             Text(
               cart.product.title,
-              style: const TextStyle(color: Colors.black),
             ),
             Text.rich(
               TextSpan(

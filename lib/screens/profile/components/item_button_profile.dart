@@ -22,7 +22,7 @@ class ItemButtonProfile extends StatelessWidget {
         ),
         padding: EdgeInsets.all(getPropScreenWidth(20)),
         decoration: BoxDecoration(
-          color: const Color(0xFFF5F6F9),
+          color: const Color.fromARGB(255, 221, 230, 255),
           borderRadius: BorderRadius.circular(15)
           
         ),

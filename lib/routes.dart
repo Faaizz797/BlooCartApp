@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_ecommerce/model/products.dart';
+import 'package:ui_ecommerce/screens/favourite/favourite_screen.dart';
 import 'package:ui_ecommerce/screens/profile/profile_screen.dart';
 import 'package:ui_ecommerce/screens/cart/cart_screen.dart';
 import 'package:ui_ecommerce/screens/complete_profile/complete_profile_screen.dart';
@@ -27,4 +28,5 @@ final Map<String, WidgetBuilder> routes = {
   },
   CartScreen.routeName: (context) => const CartScreen(),
   ProfileScreen.routeName: (context) => const ProfileScreen(),
+  FavouriteScreen.routeName: (context) => const FavouriteScreen(),
 };

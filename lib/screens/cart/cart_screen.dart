@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ui_ecommerce/model/cart.dart';
+import 'package:provider/provider.dart';
 import 'package:ui_ecommerce/screens/cart/components/body.dart';
 import 'package:ui_ecommerce/screens/cart/components/card_bottom_navigatior.dart';
+import 'package:ui_ecommerce/state_managements/cart_provider.dart';
 
 
 class CartScreen extends StatelessWidget {
@@ -31,13 +32,14 @@ class CartScreen extends StatelessWidget {
           const Text(
             "Your Cart",
             style: TextStyle(
-              color: Colors.black,
               fontWeight: FontWeight.bold,
             ),
           ),
-          Text(
-            "${listCart.length} items",
-            style: Theme.of(context).textTheme.bodyMedium,
+          Consumer<CartProvider>(
+            builder: (context, cart, child) => Text(
+              "${cart.cartItems.length} items",
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
           ),
         ],
       ),

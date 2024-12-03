@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:readmore/readmore.dart';
 import 'package:ui_ecommerce/constant.dart';
 import 'package:ui_ecommerce/model/products.dart';
 import 'package:ui_ecommerce/size_config.dart';
+import 'package:ui_ecommerce/state_managements/favourite_provider.dart';
 
 class DetailDescription extends StatelessWidget {
   const DetailDescription({
@@ -23,7 +25,6 @@ class DetailDescription extends StatelessWidget {
             product.title, 
             style: TextStyle(
               fontSize: getPropScreenWidth(20),
-              color: Colors.black
             )
           ),
         ),
@@ -33,20 +34,25 @@ class DetailDescription extends StatelessWidget {
             padding: EdgeInsets.all(getPropScreenWidth(15)),
             width: getPropScreenWidth(64),
             decoration: BoxDecoration(
-              color: product.isFavourite 
-              ? kPrimaryColor.withOpacity(0.2) 
-              : kSecondaryColor.withOpacity(0.2) ,
+              color: kPrimaryColor.withOpacity(0.2),
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(20),
                 bottomLeft: Radius.circular(20),
               )
             ),
-            child: Icon(
-              Icons.favorite,
-              size: getPropScreenWidth(18),
-              color: product.isFavourite
-                  ? Colors.redAccent
-                  : kSecondaryColor.withOpacity(0.5),
+            child: Consumer<FavouriteProvider>(
+              builder: (context, favourite, child) =>  InkWell(
+                onTap: () {
+                  favourite.toggleFavouriteStatus(product.id);
+                },
+                child: Icon(
+                  Icons.favorite,
+                  size: getPropScreenWidth(18),
+                  color: product.isFavourite
+                      ? Colors.redAccent
+                      : kSecondaryColor.withOpacity(0.5),
+                ),
+              ),
             ),
           ),
         ),

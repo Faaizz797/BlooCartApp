@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:ui_ecommerce/components/custom_navigation_bar.dart';
 import 'package:ui_ecommerce/enums.dart';
 import 'package:ui_ecommerce/screens/profile/components/body.dart';
+import 'package:ui_ecommerce/state_managements/theme_provider.dart';
 
 class ProfileScreen extends StatelessWidget {
   static String routeName = "/profile";
@@ -18,20 +20,27 @@ class ProfileScreen extends StatelessWidget {
 
   AppBar appBar(BuildContext context) {
     return AppBar(
-      leading: IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        icon: const Icon(Icons.arrow_back_ios_new_rounded),
-      ),
+      leading: Container(),
       centerTitle: true,
       title: const Text(
         "Your Profile",
         style: TextStyle(
-          color: Colors.black,
           fontWeight: FontWeight.bold,
         ),
       ),
+      actions: [
+        Consumer<ThemeProvider>(
+          builder: (context, theme, child) =>  IconButton( 
+            icon: Icon(
+              theme.isDarkMode ? Icons.wb_sunny_rounded : Icons.nightlight_round,
+              color: Theme.of(context).iconTheme.color,
+            ),
+            onPressed: () {
+              theme.toggleTheme(!theme.isDarkMode);
+            },
+          ),
+        )
+      ],
     );
   }
 }

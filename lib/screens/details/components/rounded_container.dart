@@ -18,8 +18,8 @@ class RoundedContainer extends StatelessWidget {
       decoration: BoxDecoration(
         color: kSecondaryColor.withOpacity(0.1),
         borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(50),
-          topRight: Radius.circular(50),
+          topLeft: Radius.circular(25),
+          topRight: Radius.circular(25),
         )
       ),
       child: child,

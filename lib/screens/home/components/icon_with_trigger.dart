@@ -45,7 +45,7 @@ class IconWithTrigger extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white, 
                   fontSize: getPropScreenWidth(10),
-                  height: 1,
+                  height: .1,
                   fontWeight: FontWeight.w600,
                 ),
               ),

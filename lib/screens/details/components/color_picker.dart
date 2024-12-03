@@ -64,7 +64,6 @@ class _ColorPickerState extends State<ColorPicker> {
                     "$totalSelected",
                     style: const TextStyle(
                       fontWeight: FontWeight.w600,
-                      color: Colors.black
                     ),
                   ),
                 ),
