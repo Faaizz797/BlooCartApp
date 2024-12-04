@@ -6,6 +6,15 @@ class AuthProvider extends ChangeNotifier {
 
   bool get isLoggedIn => _isLoggedIn;
 
+  String _savedEmail = "";
+  
+  String get savedEmail => _savedEmail;
+
+  void savedEmailUser(String emailUser) {
+    _savedEmail = emailUser;
+    notifyListeners();
+  }
+
   AuthProvider() {
     loadAuth();
   }

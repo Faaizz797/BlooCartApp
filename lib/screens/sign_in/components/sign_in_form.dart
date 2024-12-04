@@ -21,6 +21,7 @@ class _SignInFormState extends State<SignInForm> {
   String? email;
   String? password;
   final List<String> errors = [];
+  final TextEditingController textEditingController = TextEditingController();
 
   bool remember = false;
   @override
@@ -48,6 +49,7 @@ class _SignInFormState extends State<SignInForm> {
 
                 if (errors.isEmpty) {
                   Provider.of<AuthProvider>(context, listen: false).setAuth(true);
+                  Provider.of<AuthProvider>(context, listen: false).savedEmailUser(textEditingController.text);
                   Navigator.pushNamed(context, LoginSuccessScreen.routeName);
                 }
               },
@@ -124,6 +126,7 @@ class _SignInFormState extends State<SignInForm> {
 
   TextFormField emailFormField() {
     return TextFormField(
+      controller: textEditingController,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
         if (value!.isNotEmpty && errors.contains(kEmailNullError)) {

@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -14,12 +15,20 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   bool isLoggedIn = prefs.getBool("isLoggedIn") ?? false;
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(create: (context) => ThemeProvider()),
-    ChangeNotifierProvider(create: (context) => AuthProvider()),
-    ChangeNotifierProvider(create: (context) => CartProvider()),
-    ChangeNotifierProvider(create: (context) => FavouriteProvider()),
-  ], child:  MainApp(isLoggedIn: isLoggedIn,)));
+  runApp(
+    DevicePreview(
+      enabled: true, // Aktifkan DevicePreview untuk pengujian
+      builder: (context) => MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => ThemeProvider()),
+          ChangeNotifierProvider(create: (context) => AuthProvider()),
+          ChangeNotifierProvider(create: (context) => CartProvider()),
+          ChangeNotifierProvider(create: (context) => FavouriteProvider()),
+        ],
+        child: MainApp(isLoggedIn: isLoggedIn),
+      ),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -33,6 +42,10 @@ class MainApp extends StatelessWidget {
       builder: (context, theme, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: themeData(theme.isDarkMode),
+        // Tambahkan konfigurasi DevicePreview di bawah ini
+        useInheritedMediaQuery: true, // Pastikan kompatibilitas dengan DevicePreview
+        locale: DevicePreview.locale(context), // Gunakan locale sesuai pengaturan DevicePreview
+        builder: DevicePreview.appBuilder, // Gunakan builder dari DevicePreview
         initialRoute: isLoggedIn ? HomeScreen.routeName : SplashScreen.routeName,
         routes: routes,
       ),
